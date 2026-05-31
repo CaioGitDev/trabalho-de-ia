@@ -112,15 +112,16 @@ def _sym(symbol: str, emoji: bool) -> str:
     return EMOJI[symbol] if emoji else symbol
 
 
-def render_text(exp: Explanation, emoji: bool = False) -> str:
+def render_text(exp: Explanation, emoji: bool = False, header: bool = True) -> str:
     a = exp.assessment
     lines = []
-    lines.append(f"VEREDICTO GLUTEN .... {a.gluten_grade}")
-    lines.append(f"ALERGENIOS .......... {a.allergen_status}")
-    if a.allergens:
-        det = ", ".join(f"{k} ({v})" for k, v in a.allergens.items())
-        lines.append(f"  -> {det}")
-    lines.append("")
+    if header:
+        lines.append(f"VEREDICTO GLUTEN .... {a.gluten_grade}")
+        lines.append(f"ALERGENIOS .......... {a.allergen_status}")
+        if a.allergens:
+            det = ", ".join(f"{k} ({v})" for k, v in a.allergens.items())
+            lines.append(f"  -> {det}")
+        lines.append("")
     lines.append(f"{'Ingrediente':<28} {'Estado':<7} Observacao")
     lines.append("-" * 78)
     for r in exp.rows:
@@ -131,15 +132,16 @@ def render_text(exp: Explanation, emoji: bool = False) -> str:
     return "\n".join(lines)
 
 
-def render_markdown(exp: Explanation, emoji: bool = True) -> str:
+def render_markdown(exp: Explanation, emoji: bool = True, header: bool = True) -> str:
     a = exp.assessment
     out = []
-    out.append(f"**Veredicto glúten:** {a.gluten_grade}  ")
-    out.append(f"**Alergénios:** {a.allergen_status}")
-    if a.allergens:
-        det = ", ".join(f"{k} ({v})" for k, v in a.allergens.items())
-        out.append(f" — {det}")
-    out.append("\n")
+    if header:
+        out.append(f"**Veredicto glúten:** {a.gluten_grade}  ")
+        out.append(f"**Alergénios:** {a.allergen_status}")
+        if a.allergens:
+            det = ", ".join(f"{k} ({v})" for k, v in a.allergens.items())
+            out.append(f" — {det}")
+        out.append("\n")
     out.append("| Ingrediente | Estado | Observação |")
     out.append("| --- | :---: | --- |")
     for r in exp.rows:
