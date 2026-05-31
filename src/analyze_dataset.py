@@ -25,9 +25,10 @@ import pandas as pd
 from knowledge_base import (
     AMBIGUOUS_TAGS,
     EU_ALLERGEN_TAGS,
-    GLUTEN_FREE_LABEL_TAGS,
     GLUTEN_TAGS,
 )
+# Fonte unica da regra de estado de gluten (Fase 5 formalizou-a aqui).
+from classifier_rules import classify_gluten_status_row as classify_gluten_status
 
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -46,45 +47,6 @@ def explode_tags(series: pd.Series) -> pd.Series:
         .explode()
         .str.strip()
     )
-
-
-def classify_gluten_status(row: pd.Series) -> str:
-    """Atribui um estado relativo ao gluten a um produto.
-
-    Hierarquia (mais especifico ganha):
-      1. allergens contem en:gluten                 -> 'contem'
-      2. ingredients_tags contem tag de gluten      -> 'contem'
-      3. labels indica certificacao sem gluten      -> 'sem'
-      4. ingredients_tags contem tag ambigua        -> 'suspeito'
-      5. ingredients_tags presente, sem nada acima  -> 'sem'
-      6. ingredients_tags ausente                   -> 'desconhecido'
-    """
-    def _s(v) -> str:
-        if v is None or (isinstance(v, float) and pd.isna(v)):
-            return ""
-        return str(v).lower()
-
-    allergens = _s(row.get("allergens"))
-    ingredients = _s(row.get("ingredients_tags"))
-    labels = _s(row.get("labels_tags"))
-
-    if "en:gluten" in allergens:
-        return "contem"
-
-    if ingredients:
-        ing_set = {t.strip() for t in ingredients.split(",")}
-        if ing_set & GLUTEN_TAGS:
-            return "contem"
-        if any(lbl.strip() in GLUTEN_FREE_LABEL_TAGS for lbl in labels.split(",")):
-            return "sem"
-        if ing_set & AMBIGUOUS_TAGS:
-            return "suspeito"
-        return "sem"
-
-    # Sem lista de ingredientes
-    if any(lbl.strip() in GLUTEN_FREE_LABEL_TAGS for lbl in labels.split(",")):
-        return "sem"
-    return "desconhecido"
 
 
 def save_table(df: pd.DataFrame, name: str) -> None:
