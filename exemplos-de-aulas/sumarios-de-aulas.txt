@@ -1,0 +1,237 @@
+2026-05-12
+
+Continuação e conclusão de:
+
+Uma app para utilização de interativa de um modelo treinado com Fashion-MNIST, por "transferência de conhecimento" (formato .keras)
+260505_fashion_MNIST_app.zip
+
+O dataset CIFAR10 para uma introdução às Convolutional Neural Networks (CNNs) - intuição apenas.
+260505_simplest_cifar_with_cnn.zip
+
+Regresso à "GOFAI" (Good Old Fashioned AI), para problemas de procura (search problems):
+- procuras NÃO informadas;
+- agentes para procuras NÃO informadas;
+- o conceito de "frontier" (estrutura de dados que representa os estados por explorar);
+- algoritmo geral baseado em grafo acíclico em que o desempenho só depende da disciplina de acesso à frontier;
+- Depth First Search com LIFO;
+- Breadth First Search com FIFO.
+
+Introdução às procuras informadas:
+- conceito de heurística (função h);
+- conceito de custo presente (função g);
+- intuição do algoritmo Greedy Breadth First Search (GBFS), com seleção prioritária (de frontier) do h mínimo;
+- intuição do algoritmo A* com g+h, com seleção prioritária (de frontier) do g+h mínimo.
+
+Ficou disponível: am260512_search.zip
+
+Ficou disponível o enunciado de um teste "exemplo", e a sua solução parcial.
+
+Fim dos conteúdos.
+
+Semana de 2026-05-03 (#11/15)
+
+2026-05-05
+
+A "Confusion Matrix" (CM) para problemas de classificação - e regressão?
+Consolidação: revisita do conceito, da app interativa e das métricas calculáveis.
+20260414_iia_confusion_matrix_v9.pdf [slides da sessão anterior]
+260428_confusion_matrix_w_explainability.zip [software para computação de métricas]
+260428_confusion_matrix_app.zip [app interativa]
+
+Integração da CM na avaliação de modelos baseados em ANN: Fashion-MNIST.
+260505_fashion_MNIST.zip [CM integrada, versão com novas arquiteturas "fused" e "not fused"]
+
+Apresentação correspondente ao código do Fashion MNIST: iia_ml_fashion_mnist_v15.pdf
+
+Uma app para utilização de interativa de um modelo treinado com Fashion-MNIST, por "transferência de conhecimento" (formato .keras)
+260505_fashion_MNIST_app.zip [versão revista, com pré-processamento extra]
+
+Dados sintéticos.
+ML com dados sintéticos.
+Classificadores (KNN e MLP - Multi Layer Perceptron) sobre dados sintéticos.
+Caso de estudo "AM Triangle":
+260505_amtriangle_pres_v04.pdf [apresentação]
+260505_AM_splnproc1703_v9_r1_v20221031_proof_reading.pdf [paper]
+260505_synthetic_data_with_amtriangle.zip [software: geradores, classificadores, app]
+
+O dataset CIFAR10 para uma introdução às Convolutional Neural Networks (CNNs) - intuição apenas.
+260505_simplest_cifar_with_cnn.zip
+
+Semana de 2026-04-26 (#10/15)
+
+2026-04-28
+
+A "Confusion Matrix" (CM) para problemas de classificação - e regressão?
+20260414_iia_confusion_matrix_v9.pdf [slides aumentados]
+
+Programação, intuição e utilidade da CM.
+Interpretação de: accuracy, precision, recall e F1-score.
+260428_confusion_matrix_w_explainability.zip [comentários melhorados]
+
+Uma web-app para visualização interactiva da CM em ação.
+260428_confusion_matrix_app.zip
+
+Integração da CM na avaliação de modelos baseados em ANN: MNIST e Fashion-MNIST.
+260428_ml_nn_digits_crash.zip [CM integrada]
+260428_fashion_MNIST.zip [CM integrada]
+
+Uma app para utilização de interativa de um modelo treinado com Fashion-MNIST, por "transferência de conhecimento" (formato .keras)
+260428_fashion_MNIST_app.zip
+
+Semana de 2026-04-19 (#09/15)
+
+2026-04-21
+
+A intuição e a matemática em forward + backward passes em ANNs, utilizando a arquitetura densa da aula anterior:
+260421_ml_nn_digits_crash.zip [comentários revistos]
+
+Uma Python Flask app para visualizar a primeira forward pass + backward pass sobre a ANN densa da aula anterior:
+260421_fw_bw_viz_v3.zip [versão experimental]
+
+Slides companheiros da app para visualizar as forward + backward passes iniciais sobre a ANN densa:
+20260421_fw_pass_bw_pass_explained_from_mnist_prj_v9.pdf
+
+Mensuração do desempenho por confusion matrix - uma implementação com explicabilidade embebida:
+260414_confusion_matrix_w_explainability.zip
+20260414_iia_confusion_matrix_v8.pdf
+
+A origem do neurónio artificial: o "Perceptron" - conceito + uma implementação prática.
+20260414_am_perceptron.zip
+20260414_am_ml_perceptron_v5.pdf
+
+Semana de 2026-04-12 (#08/15)
+
+2026-04-14
+
+Estratificação k-fold como método contribuidor para menor chance de overfitting, revisitando o código do algoritmo KNN da sessão anterior:
+260414_intro_ml_class_iris_w_knn.zip
+
+Introdução às ANNs (Artificial Neural Network) com arquiteturas densas.
+Conceitos de arquitetura, hiper-parâmetros, epochs, pesos, bias, batches, função de perda, função de optimização, velocidade de aprendizagem (learning rate).
+
+Aplicação prática dos conceitos (versão revista da iniciada na sessão anterior):
+260414_ml_nn_digits_crash.zip
+
+Semana de 2026-04-05 (#07/15)
+
+2026-04-07
+
+Estudo de ML não paramétrico, baseado em KNN.
+
+Estudo de ML baseado em redes neuronais densas.
+
+Estudo dos datasets: Iris, MNIST, Fashion MNIST.
+
+Ficaram disponíveis:
+
+iia_ml_inc_ann_v20260407_v9.pdf + 260407_ml_nn_digits_crash.zip
+
+iia_ml_fashion_mnist_v3.pdf ; 260407_fashion_MNIST.zip
+
+Semana de 2026-03-22 (#06/15)
+
+2026-03-24
+
+Métricas de distância diversas - implementações em "plain Python" e com numpy.
+Algumas métricas relevantes para estilometria:
+- Chi-square statistic;
+- Jaccard-index;
+- Jaccard-distance;
+- Overlap-coef.
+
+Aplicação de estilometria para identificar "autor desconhecido":
+- entre obras de autores de língua inglesa (exemplo: Arthur Doyle vs. Herbert Wells);
+- entre obras de autores de língua portuguesa (exemplo: Eça de Queiroz vs. Fernando Pessoa | Bernardo Soares).
+
+Conceitos aplicados: média, variância, desvio padrão, normalização, estandardização.
+
+Introdução formal e aplicada à Aprendizagem Máquina | Machine Learning (ML).
+Conceitos de ciência dos dados no contexto de ML: amostra, dataset, modelo.
+Métodos/computações relevantes em ML: train_test_split, fit, predict.
+
+Técnicas de cross-validation: K-Fold e K-Fold estratificado.
+
+Estudo do "Iris" dataset, de Ronald Fisher.
+
+Algoritmos não paramétricos.
+O algoritmo KNN.
+
+Aplicação do algoritmo KNN para construção de um modelo de ML, que aprende a classificar espécies de Iris, depois de sujeito ao "Iris" dataset.
+
+Ficaram disponíveis:
+260324_stylometry_en_and_pt.zip ; 260324_my_knn.zip ; 260324_intro_ml_class_iris_w_knn.zip ; 20260324_iia_knn_v5.pdf
+
+Semana de 2026-03-15 (#05/15)
+
+2026-03-17
+
+Conclusão das ferramentas relacionadas com problemas de lógica (ponto de partida: iia_20260310.zip).
+
+Continuação, estudo, e conclusão da "procura do náufrago com Bayes" - uma aplicação do Teorema de Bayes.
+Teorema de Bayes: formulações diversas relevantes e sua aplicação.
+
+Métricas de distância para informação vetorizada:
+- Manhattan;
+- Euclidian;
+- Minkowski;
+- Hamming;
+- outras, específicas para aplicações de NLP (Natural Language Processing) para Estilometria.
+Implementações, sem e com numpy.
+
+NLP com "nltk".
+Introdução à Estilometria.
+Aplicação: identificação do autor de um texto, que à priori é desconhecido.
+
+Ficou disponível: 260317_stylometry.zip
+
+Semana de 2026-03-08 (#04/15)
+
+2026-03-10
+
+Exemplo de abordagem a IA, pela escola dos "simbolistas":
+
+Aplicação a problemas de Lógica: conceito de modelo lógico; problemas de satisfação, implicação e equivalência.
+
+Exemplo de abordagem a IA, pela escola dos "Bayesianos":
+
+Teorema de Bayes, formulações diversas, aplicação a um jogo de procura.
+
+Ficaram disponíveis: logical_fun.zip ; ia_search_with_bayes_2526_v8.pdf [atualizado] ; am_bayes_search.zip
+
+Código escrito durante a sessão: iia_20260310.zip
+
+Semana de 2026-02-27 (#03/15)
+
+2026-03-03
+
+Continuação e conclusão da introdução à Inteligência Artificial (IA): ia_intro_deeper_v2026_v1.pdf
+
+Conceitos diversos, resultantes do consumo dos slides, entre os quais: proximidade semântica (cos similarity), inferência, treino, amostra, dataset, gen-AI, vetorização.
+
+Python refresh com cos-similarity.
+
+Aspetos sociais: propriedade intelectual (copyright) e (falta) de proteção para partes que sejam output de IA.
+
+Problemas de Lógica: conceito de modelo lógico; problemas de satisfação, implicação e equivalência.
+
+Ficou disponível: ia_propositional_logical_in_python_v04.pdf
+
+Código feito/utilizado em aula: iia_260303.zip
+
+Semana de 2026-02-22 (#02/15)
+
+2026-02-24
+
+Apresentação.
+
+Está disponível a ficha da disciplina.
+
+Inteligência Artificial (IA): uma introdução.
+
+Conceitos de IA. Escolas de pensamento. Algumas pessoas e eventos com relevância.
+
+Interdisciplinaridade da IA. Problemas computacionais relacionados. Abordagens computacionais que o curso seguirá.
+
+Ficou disponível: ia_intro_v2026_v1.pdf ; ia_intro_deeper_v2026_v1.pdf
+
+Semana de 2026-02-15 (#01/15)

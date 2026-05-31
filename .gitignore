@@ -1,0 +1,46 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Local tooling
+.claude/
+
+# Data (too large for git; downloaded/derived)
+data/raw/
+data/processed/
+data/interim/
+
+# Model artefacts
+*.keras
+*.h5
+*.pkl
+*.joblib
+# Keep teacher-provided example models
+!exemplos-de-aulas/**/*.keras
+
+# Logs
+*.log
