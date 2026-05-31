@@ -2,6 +2,7 @@ requests>=2.31
 pandas>=2.2
 numpy>=1.26
 matplotlib>=3.8
+scikit-learn>=1.4   # Fase 5: Arvore de Decisao + Random Forest (NB e proprio)
 # OCR
 pillow>=10
 opencv-python>=4.9
