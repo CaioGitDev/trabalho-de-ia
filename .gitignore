@@ -33,6 +33,8 @@ desktop.ini
 data/raw/
 data/processed/
 data/interim/
+data/tessdata/
+data/sample_labels/
 
 # Model artefacts
 *.keras

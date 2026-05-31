@@ -2,3 +2,9 @@ requests>=2.31
 pandas>=2.2
 numpy>=1.26
 matplotlib>=3.8
+# OCR
+pillow>=10
+opencv-python>=4.9
+pytesseract>=0.3.10
+# Tesseract binario (sistema): winget install UB-Mannheim.TesseractOCR
+# Packs de idioma em data/tessdata/ (por.traineddata, eng.traineddata, osd.traineddata)
