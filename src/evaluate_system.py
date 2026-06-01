@@ -27,6 +27,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import sys
 from pathlib import Path
 
 import numpy as np
@@ -50,7 +51,9 @@ GT_SEM = "sem"
 
 
 def _p(buf: list[str], line: str = "") -> None:
-    print(line)
+    # escrita robusta em UTF-8 (a consola Windows usa cp1252 e rebenta com
+    # o mojibake de alguns textos OFF)
+    sys.stdout.buffer.write((line + "\n").encode("utf-8", "replace"))
     buf.append(line)
 
 
@@ -169,11 +172,11 @@ LIMITATIONS = """## Limitacoes e discussao
   grande parte do texto nao e recuperada, pelo que o veredicto a partir da
   imagem e frequentemente menos grave do que o real (ver seccao C). O sistema
   funciona muito melhor sobre texto de ingredientes limpo.
-- **Lingua do texto (principal causa de falsos negativos).** O lexico e em
-  portugues; produtos cujo `ingredients_text` esta em ingles/frances ("wheat
-  flour", "flocons d'avoine") nao sao reconhecidos. Uma extensao natural e
-  juntar termos EN/FR ao lexico ou usar a coluna `ingredients_tags` quando
-  disponivel.
+- **Lingua do texto.** O lexico cobre PT + EN + FR (juntar EN/FR subiu a
+  exatidao da avaliacao B de ~88% para ~91% e o recall de gluten de 80% para
+  ~90%). Os falsos negativos remanescentes sao sobretudo texto em italiano
+  ("latte", "cebada") e espanhol; extensao natural: juntar IT/ES ou usar a
+  coluna normalizada `ingredients_tags` quando disponivel.
 - **Ground-truth ruidoso (seccao B).** O campo `allergens` da OFF e preenchido
   por contribuidores e tem falsos negativos (produtos com gluten sem o declarar).
   Varios "falsos positivos" do pipeline sao, na verdade, deteccoes CORRETAS que

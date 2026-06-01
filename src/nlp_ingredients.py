@@ -51,10 +51,11 @@ FUZZY_THRESHOLD = 0.84
 FUZZY_MIN_LEN = 5
 
 
-# Marcadores de declaracao (forma folded, sem acentos)
+# Marcadores de declaracao (forma folded, sem acentos; PT + EN/FR)
 _TRACE_MARKERS = ("pode conter", "podem conter", "pode conter tracos",
-                  "tracos de", "vestigios de", "tracos", "vestigios")
-_CONTAINS_MARKERS = ("contem", "contem:")
+                  "tracos de", "vestigios de", "tracos", "vestigios",
+                  "may contain", "traces of", "peut contenir", "traces de")
+_CONTAINS_MARKERS = ("contem", "contem:", "contains", "contient")
 # Rotulo de ausencia certificada de gluten (texto livre)
 _GLUTEN_FREE_RE = re.compile(
     r"sem\s+gluten|gluten\s*free|isento\s+de\s+gluten|0\s*%?\s*gluten|gluten\s+free"

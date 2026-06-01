@@ -172,7 +172,10 @@ do Open Food Facts, que o pipeline nunca consulta).
 | Avaliação | Resultado |
 | --- | --- |
 | Random Forest (teste retido) | Exatidão 88.7 %, macro-F1 88.1 % |
-| Pipeline NLP+regras vs rótulo independente (1500 produtos) | Exatidão 87.9 %; deteção de glúten **P=84.7 % / R=80.0 %** |
+| Pipeline NLP+regras vs rótulo independente (1500 produtos) | Exatidão **91.2 %**; deteção de glúten **P=85.7 % / R=89.9 %** |
+
+> O léxico cobre **PT + EN + FR**: incluir os termos EN/FR subiu a exatidão da
+> avaliação B de ~88 % para ~91 % e o *recall* de glúten de 80 % para ~90 %.
 
 Detalhe completo em [`docs/reports/avaliacao_fase8.md`](docs/reports/avaliacao_fase8.md).
 
@@ -201,8 +204,9 @@ e recursos) e alinha-se com o que foi efetivamente lecionado.
 - O **OCR** é a maior fonte de erro: em fotografias reais (confiança média
   ~48 %) parte do texto não é recuperada e o veredicto tende a ser menos grave
   do que o real.
-- O **léxico é em português**; rótulos em inglês/francês geram falsos negativos
-  (principal causa de erro na fase 8) — extensão natural: juntar termos EN/FR.
+- O **léxico cobre PT/EN/FR**; rótulos noutras línguas (italiano, espanhol)
+  ainda geram falsos negativos — extensão natural: juntar IT/ES ou usar a
+  coluna normalizada `ingredients_tags` quando disponível.
 - A **correspondência difusa favorece o *recall*** (mais seguro sobre-assinalar
   risco), o que introduz alguns falsos positivos (ex.: "lactone" ≈ "lactose").
 - Os classificadores supervisionados usam **rótulos gerados pelas próprias
