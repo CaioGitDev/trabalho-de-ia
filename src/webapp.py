@@ -85,7 +85,6 @@ A análise é explicável: cada ingrediente é justificado.</p>
   </div>
 </form>
 {result}
-<p class="muted">Projeto académico IIA — Universidade Fernando Pessoa.</p>
 </body></html>"""
 
 
