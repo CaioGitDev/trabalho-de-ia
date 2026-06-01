@@ -3,6 +3,7 @@ pandas>=2.2
 numpy>=1.26
 matplotlib>=3.8
 scikit-learn>=1.4   # Fase 5: Arvore de Decisao + Random Forest (NB e proprio)
+flask>=3.0          # App web (src/webapp.py)
 # OCR
 pillow>=10
 opencv-python>=4.9

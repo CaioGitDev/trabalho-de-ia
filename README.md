@@ -69,6 +69,7 @@ o **Open Food Facts** é a fonte de dados e a base de conhecimento
 | `explain.py` | 6 | Motor de explicabilidade (tabela por ingrediente) |
 | `report.py` | 7 | Relatório automático (4 secções) e pipeline completo |
 | `evaluate_system.py` | 8 | Avaliação e validação do sistema |
+| `webapp.py` | — | Aplicação web (Flask) sobre o pipeline completo |
 
 Saídas: `docs/figures/` (gráficos), `docs/reports/` (relatórios de exemplo e
 avaliação). Os dados volumosos (`data/raw/`, `data/processed/`) não são
@@ -114,6 +115,19 @@ python src/report.py --image data/sample_labels/5601009935185.jpg --md docs/repo
 ```
 
 Sem argumentos, corre sobre os rótulos de exemplo incluídos.
+
+### Aplicação web
+
+Interface no browser para colar texto ou carregar a foto de um rótulo:
+
+```bash
+python src/webapp.py
+# abrir http://127.0.0.1:5000
+```
+
+Mostra o veredicto (com cor por grau de risco), a tabela de ingredientes
+(❌/✅/⚠️), os alergénios e as recomendações. A análise por imagem requer o
+Tesseract; a análise por texto não tem dependências de sistema.
 
 ### Reproduzir cada fase
 
